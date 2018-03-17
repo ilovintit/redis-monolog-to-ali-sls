@@ -1,0 +1,3 @@
+[submodule "aliyun-log-php-sdk"]
+	path = aliyun-log-php-sdk
+	url = https://github.com/aliyun/aliyun-log-php-sdk.git

@@ -1,0 +1,14 @@
+{
+    "name": "ilovintit/redis-log-to-sls",
+    "type": "project",
+    "authors": [
+        {
+            "name": "古俊杰",
+            "email": "ilovintit@gmail.com"
+        }
+    ],
+    "require": {
+        "predis/predis": "^1.1",
+        "vlucas/phpdotenv": "^2.4"
+    }
+}
