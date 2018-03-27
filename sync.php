@@ -26,6 +26,12 @@ class sync
     protected $logStore;
 
     /**
+     * @var
+     */
+
+    protected $logTopic;
+
+    /**
      * @var \Predis\Client
      */
 
@@ -113,6 +119,7 @@ class sync
         $this->slsClient = new Aliyun_Log_Client(getenv('SLS_ENDPOINT'), getenv('SLS_ACCESS_KEY'), getenv('SLS_ACCESS_SECRET'));
         $this->project = getenv('SLS_PROJECT');
         $this->logStore = getenv('SLS_LOG_STORE');
+        $this->logTopic = getenv('SLS_TOPIC');
         $this->ossBucket = getenv('OSS_BUCKET');
         try {
             $this->ossClient = new \OSS\OssClient(getenv('OSS_ACCESS_KEY'), getenv('OSS_ACCESS_SECRET'), getenv('OSS_ENDPOINT'));
@@ -310,7 +317,7 @@ class sync
     protected function sendLogToSls()
     {
         try {
-            $request = new Aliyun_Log_Models_PutLogsRequest($this->project, $this->logStore, null, null, $this->tempLogList);
+            $request = new Aliyun_Log_Models_PutLogsRequest($this->project, $this->logStore, $this->logTopic, null, $this->tempLogList);
             $this->slsClient->putLogs($request);
             return true;
         } catch (Aliyun_Log_Exception $ex) {
