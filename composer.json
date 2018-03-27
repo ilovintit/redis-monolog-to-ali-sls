@@ -9,6 +9,7 @@
     ],
     "require": {
         "predis/predis": "^1.1",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+        "aliyuncs/oss-sdk-php": "^2.3"
     }
 }
