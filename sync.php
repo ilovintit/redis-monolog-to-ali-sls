@@ -3,7 +3,7 @@
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/aliyun-log-php-sdk/Log_Autoload.php';
 
-(new Dotenv\Dotenv(__DIR__))->load();
+file_exists(__DIR__ . '/.env') && (new Dotenv\Dotenv(__DIR__))->load();
 
 class sync
 {
